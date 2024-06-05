@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="star">Nhập tên ngôi sao:</label>
+    <input type="text" id="star"><br><br>
+    <button onclick="getResult()">Kết quả</button>
+    <p id="result"></p>
+    <script>
+        let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let constellations = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        function getResult() {
+            let star = document.getElementById("star").value;
+            let index = -1;
+            for (let i = 0; i < stars.length; i++) {
+                if (star === stars[i]) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index !== -1) {
+                document.getElementById("result").innerHTML = "Chòm sao của ngôi sao " + star + " là: " + constellations[index];
+            } else {
+                document.getElementById("result").innerHTML = "Không tìm thấy ngôi sao này trong danh sách!"
+            }
+        }
+
+    </script>
+</body>
+
+</html>

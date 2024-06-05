@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Kiểm tra số nguyên tố</h3>
+    <label for="num">Nhập số</label>
+    <input type="text" id="num" placeholder="Số" oninput="getPrime()">
+    <p id="result"></p>
+    <script>
+        function isPrime(num){
+            if (num <= 1) return false; // Số nhỏ hơn hoặc bằng 1 không phải là số nguyên tố
+            if (num <= 3) return true; // 2 và 3 là số nguyên tố
+            if (num % 2 === 0 || num % 3 === 0) return false; // Loại bỏ các số chẵn và số chia hết cho 3
+
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+
+            return true;
+        }
+
+        function getPrime() {
+            let number = parseInt(document.getElementById("num").value);
+            let result = document.getElementById("result");
+
+            if (isNaN(number)){
+                result.innerHTML = "Vui lòng nhập một số hợp lệ";
+                return;
+            }
+            
+            if (isPrime(number)) {
+                result.innerHTML = "Số " + number + " là số nguyên tố";
+            } else {
+                result.innerHTML = "Số " + number + " không phải là số nguyên tố";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

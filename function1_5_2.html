@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Tạo mảng chứa tên các ngôi sao
+        const stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        // Tạo mảng chứa tên các chòm sao tương ứng
+        const constellations = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+        // Hàm tìm chòm sao của một ngôi sao
+        function findConstellation(star) {
+            const index = stars.indexOf(star);
+            if (index !== -1) {
+                return constellations[index];
+            } else {
+                return "Không tìm thấy ngôi sao này trong danh sách.";
+            }
+        }
+
+        // Sử dụng hộp thoại prompt để người dùng nhập tên ngôi sao
+        const starName = prompt("Nhập tên ngôi sao:");
+        if (starName) {
+            const result = findConstellation(starName.trim());
+            document.getElementById("result").innerHTML = "Chòm sao của ngôi sao " + starName + " là: " + result;
+        } else {
+            document.getElementById("result").innerHTML = "Bạn chưa nhập tên ngôi sao.";
+        }
+    </script>
+</body>
+</html>

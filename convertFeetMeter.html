@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Chuyển đổi Feet và Meter</h3>
+    <label for="num">Nhập số</label>
+    <input type="text" id="num"><br><br>
+    <button onclick="getResult()">Kết quả</button>
+    <p id="meter"></p>
+    <p id="feet"></p>
+    <script>
+        function getMeter(feet) {
+            let meter = 0.305 * feet;
+            //meter = parseFloat(meter.toFixed(2));
+            return meter;
+        }
+        function getFeet(meter) {
+            let feet = 3.279 * meter;
+            //feet = parseFloat(feet.toFixed(2));
+            return feet;
+        }
+        function getResult() {
+            let number = parseInt(document.getElementById("num").value);
+            document.getElementById("meter").innerHTML = number + " feet(ft) = " + getMeter(number) + "(m)";
+            document.getElementById("feet").innerHTML =  number + " meter(m) = " + getFeet(number) + "(ft)";
+        }
+    </script>
+</body>
+
+</html>
